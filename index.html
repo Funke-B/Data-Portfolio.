@@ -3,80 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Funke Bolarin | Data Analyst Portfolio</title>
-<meta name="description" content="Data Analyst portfolio showcasing dashboards, SQL, Excel, Power BI and business analytics projects.">
+<title>Oluwafunke Bolarin — Data Analyst | SQL, Dashboards &amp; Inventory Analytics</title>
+<meta name="description" content="Oluwafunke Bolarin — Data Analyst with SQL and inventory analytics experience. ALX Data Analytics Program graduate turning stock, sales, and database records into dashboards and decisions. Based in Lagos, Nigeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f8fc;--card:#fff;--text:#172033;--muted:#667085;--line:#e7eaf0;--accent:#5b5bd6;--accent2:#8b5cf6}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.container{width:min(1100px,92%);margin:auto}.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:800;font-size:20px}.logo span{color:var(--accent)}
-nav a{margin-left:24px;text-decoration:none;color:#475467;font-weight:600;font-size:14px}nav a:hover{color:var(--accent)}
-.hero{padding:90px 0 70px;background:linear-gradient(135deg,#f7f8fc 0%,#eef0ff 100%)}.hero-grid{display:grid;grid-template-columns:1.35fr .65fr;gap:55px;align-items:center}
-.badge{display:inline-block;padding:7px 12px;border-radius:99px;background:#e8e8ff;color:#4848b8;font-size:13px;font-weight:700}
-h1{font-size:clamp(42px,6vw,72px);line-height:1.03;margin:18px 0}.gradient{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent}
-.hero p{font-size:19px;color:var(--muted);max-width:670px}.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:13px 20px;border-radius:10px;text-decoration:none;font-weight:700}.primary{background:var(--accent);color:#fff}.secondary{background:#fff;color:var(--text);border:1px solid var(--line)}
-.profile-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 15px 45px rgba(30,35,70,.08)}.avatar{width:100px;height:100px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;font-size:30px;font-weight:800;margin-bottom:20px}.profile-card h3{margin:0 0 5px}.profile-card p{font-size:14px;margin:0;color:var(--muted)}
-section{padding:75px 0}.section-title{font-size:34px;margin:0 0 8px}.section-sub{color:var(--muted);margin-top:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px}.card h3{margin-top:0}.icon{font-size:25px}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:18px}.tag{background:#f0f1f7;padding:5px 9px;border-radius:7px;font-size:12px;font-weight:700;color:#475467}
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}.project{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.project-top{height:150px;background:linear-gradient(135deg,#ececff,#f4efff);display:flex;align-items:center;justify-content:center;font-size:44px}.project-body{padding:24px}.project-body p{color:var(--muted)}.project a{color:var(--accent);font-weight:700;text-decoration:none}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{background:#fff;border:1px solid var(--line);padding:20px;border-radius:14px}.stat strong{display:block;font-size:30px}.stat span{color:var(--muted);font-size:13px}
-.contact{background:#171b2b;color:#fff;border-radius:24px;padding:45px}.contact p{color:#c8ccda}.contact a{color:#fff}.footer{padding:30px 0;color:var(--muted);font-size:13px;text-align:center}
-@media(max-width:800px){.hero-grid,.projects{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr 1fr}nav a{margin-left:10px;font-size:12px}.hero{padding-top:60px}}
-@media(max-width:520px){.grid,.stats{grid-template-columns:1fr}nav a{display:none}}
+  :root{
+    --paper:#F2F5EF;
+    --paper-card:#FFFFFF;
+    --ink:#1B2620;
+    --ink-soft:#55655B;
+    --accent:#1B5E48;
+    --accent-dark:#123D30;
+    --flag-good:#2F8F5B;
+    --flag-warn:#C97A2E;
+    --flag-alert:#B5503F;
+    --line:#D9DED3;
+    --tag-bg:#E7EEE3;
+    --content-width:760px;
+    --font-display:'Zilla Slab', Georgia, serif;
+    --font-body:'IBM Plex Sans', -apple-system, sans-serif;
+    --font-mono:'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  @media (prefers-reduced-motion:no-preference){
+    html{ scroll-behavior:smooth; }
+  }
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:repeating-linear-gradient(to bottom, transparent, transparent 27px, rgba(27,38,32,0.035) 27px, rgba(27,38,32,0.035) 28px);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:var(--font-display); font-weight:600; line-height:1.15; margin:0; }
+  p{ margin:0 0 1rem; }
+  p:last-child{ margin-bottom:0; }
+  a{ color:var(--accent); }
+  ul,ol{ margin:0; padding:0; }
+  :focus-visible{ outline:2.5px solid var(--accent); outline-offset:3px; }
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin:0 0 1rem;
+  }
+
+  /* ---------- status bar ---------- */
+  .statusbar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,245,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .statusbar-inner{
+    max-width:var(--content-width);
+    margin:0 auto;
+    padding:0.9rem 1.5rem;
+    display:flex; align-items:center; gap:1.25rem;
+  }
+  .statusbar-brand{
+    font-family:var(--font-display); font-weight:700; font-size:1.05rem;
+    color:var(--ink); text-decoration:none;
+  }
+  .statusbar-flag{
+    font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft);
+    display:flex; align-items:center; white-space:nowrap;
+  }
+  .statusbar-nav{
+    margin-left:auto; display:flex; gap:1.4rem;
+  }
+  .statusbar-nav a{
+    font-size:0.9rem; color:var(--ink); text-decoration:none; padding:0.25rem 0;
+    border-bottom:2px solid transparent;
+  }
+  .statusbar-nav a.is-active,.statusbar-nav a:hover{ border-bottom-color:var(--accent); }
+  .nav-toggle{
+    display:none; margin-left:auto; background:none; border:1.5px solid var(--ink); border-radius:6px;
+    width:38px; height:34px; padding:0; cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:4px;
+  }
+  .nav-toggle span{ display:block; width:18px; height:2px; background:var(--ink); }
+  .mobile-nav{ display:none; }
+
+  .dot{ display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:0.5rem; flex:none; }
+  .dot-good{ background:var(--flag-good); }
+  .dot-warn{ background:var(--flag-warn); }
+  .dot-alert{ background:var(--flag-alert); }
+  .dot-live{ animation:pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse{
+    0%,100%{ box-shadow:0 0 0 0 rgba(47,143,91,0.45); }
+    50%{ box-shadow:0 0 0 5px rgba(47,143,91,0); }
+  }
+  @media (prefers-reduced-motion:reduce){ .dot-live{ animation:none; } }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:4.5rem 1.5rem 3.5rem; }
+  .hero-inner{
+    max-width:var(--content-width); margin:0 auto;
+    display:flex; align-items:flex-start; gap:2.5rem; justify-content:space-between;
+  }
+  .hero-text{ max-width:560px; }
+  .hero h1{ font-size:clamp(2.3rem,5.5vw,3.2rem); margin-bottom:0.9rem; }
+  .hero-lead{ font-size:1.1rem; color:var(--ink-soft); max-width:52ch; }
+  .hero-actions{ display:flex; gap:0.9rem; margin-top:1.75rem; flex-wrap:wrap; }
+
+  .btn{
+    display:inline-block; font-family:var(--font-body); font-weight:600; font-size:0.95rem;
+    padding:0.7rem 1.35rem; border-radius:7px; text-decoration:none; border:1.5px solid transparent;
+    transition:background-color 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-primary{ background:var(--accent); color:#fff; }
+  .btn-primary:hover{ background:var(--accent-dark); }
+  .btn-ghost{ border-color:var(--ink); color:var(--ink); }
+  .btn-ghost:hover{ background:var(--tag-bg); }
+
+  .hero-tag{ flex:none; padding-top:0.5rem; }
+  .tag{
+    position:relative; width:150px; height:96px;
+    background:var(--paper-card); border:2px solid var(--ink); border-radius:4px 18px 4px 4px;
+    transform:rotate(-4deg);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.2rem;
+  }
+  .tag::before{
+    content:''; position:absolute; top:12px; left:12px; width:12px; height:12px;
+    border-radius:50%; border:2px solid var(--ink-soft); background:var(--paper);
+  }
+  .tag-mono{ font-family:var(--font-display); font-weight:700; font-size:1.7rem; color:var(--ink); }
+  .tag-caption{ font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.12em; color:var(--ink-soft); }
+
+  /* ---------- sections ---------- */
+  .section{ padding:3.75rem 1.5rem; }
+  .section-alt{ background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .section-inner{ max-width:var(--content-width); margin:0 auto; }
+  .prose{ max-width:640px; }
+  .prose p{ color:var(--ink); }
+
+  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion:reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
+
+  /* ---------- skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem 2.5rem; }
+  .skills-group h3{ font-size:1rem; font-family:var(--font-body); font-weight:600; margin-bottom:0.75rem; }
+  .tag-list{ list-style:none; display:flex; flex-wrap:wrap; margin:-0.25rem; }
+  .tag-chip{
+    position:relative; display:inline-flex; align-items:center;
+    padding:0.42rem 0.9rem 0.42rem 1.65rem; margin:0.25rem;
+    background:var(--tag-bg); border:1px solid var(--line); border-radius:3px 10px 10px 3px;
+    font-family:var(--font-mono); font-size:0.82rem; color:var(--ink);
+  }
+  .tag-chip::before{
+    content:''; position:absolute; left:0.55rem; top:50%; transform:translateY(-50%);
+    width:6px; height:6px; border-radius:50%; background:var(--paper); border:1.5px solid var(--ink-soft);
+  }
+
+  /* ---------- projects ---------- */
+  .project-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1.75rem; }
+  .project-card{
+    background:var(--paper-card); border:1px solid var(--line); border-radius:10px; padding:1.6rem;
+  }
+  .project-card h3{ font-size:1.15rem; margin-bottom:0.35rem; }
+  .project-tools{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-bottom:0.9rem; }
+  .caption{ font-family:var(--font-mono); font-size:0.72rem; color:var(--ink-soft); margin-top:0.7rem; }
+
+  .project-group{ margin-bottom:2.25rem; }
+  .project-group:last-child{ margin-bottom:0; }
+  .group-label{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); margin:0 0 0.9rem; }
+  .project-card-featured{ grid-column:1 / -1; }
+  .findings-list{ list-style:none; margin:1.1rem 0 0; display:flex; flex-direction:column; gap:0.55rem; }
+  .findings-list li{ position:relative; padding-left:1.3rem; font-size:0.95rem; }
+  .findings-list li::before{ content:''; position:absolute; left:0; top:0.5rem; width:7px; height:7px; background:var(--accent); }
+  .series-links{ display:flex; flex-wrap:wrap; gap:0.6rem; margin-top:1.25rem; }
+  .series-links a{ font-family:var(--font-mono); font-size:0.78rem; text-decoration:none; padding:0.4rem 0.8rem; border:1px solid var(--line); border-radius:20px; color:var(--ink); background:var(--tag-bg); }
+  .series-links a:hover{ border-color:var(--accent); color:var(--accent); }
+
+  .mini-ledger{
+    margin-top:1.1rem; border:1px solid var(--line); border-radius:8px; overflow:hidden;
+    font-family:var(--font-mono); font-size:0.78rem;
+  }
+  .ml-row{
+    display:grid; grid-template-columns:1.5fr 0.8fr 0.8fr 1.1fr; gap:0.4rem;
+    padding:0.5rem 0.8rem; border-bottom:1px solid var(--line); align-items:center;
+  }
+  .ml-row:last-child{ border-bottom:none; }
+  .ml-head{ background:var(--tag-bg); color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; font-size:0.68rem; }
+
+  .abc-bars{ margin-top:1.1rem; display:flex; flex-direction:column; gap:0.55rem; }
+  .abc-row{ display:grid; grid-template-columns:4rem 1fr 2.8rem; align-items:center; gap:0.7rem; font-family:var(--font-mono); font-size:0.82rem; }
+  .abc-track{ background:var(--tag-bg); border-radius:4px; height:9px; overflow:hidden; }
+  .abc-fill{ display:block; height:100%; background:var(--accent); border-radius:4px; }
+  .abc-value{ text-align:right; color:var(--ink-soft); }
+
+  /* ---------- experience timeline ---------- */
+  .timeline{ list-style:none; position:relative; }
+  .timeline::before{ content:''; position:absolute; left:5px; top:6px; bottom:6px; width:2px; background:var(--line); }
+  .timeline li{ position:relative; padding-left:2.1rem; margin-bottom:2.75rem; }
+  .timeline li:last-child{ margin-bottom:0; }
+  .timeline li::before{
+    content:''; position:absolute; left:0; top:0.4rem; width:10px; height:10px; background:var(--accent); border:2px solid var(--paper-card);
+  }
+  .timeline-date{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); margin-bottom:0.25rem; }
+  .timeline h3{ font-size:1.15rem; margin-bottom:0.15rem; }
+  .timeline-org{ font-weight:500; color:var(--ink); margin-bottom:0.8rem; }
+  .timeline ul{ list-style:none; }
+  .timeline ul li{ padding-left:1.2rem; margin-bottom:0.55rem; position:static; }
+  .timeline ul li::before{ display:none; }
+  .timeline ul li{ position:relative; }
+  .timeline ul li::after{
+    content:''; position:absolute; left:0; top:0.55rem; width:5px; height:5px; background:var(--ink-soft); border-radius:50%;
+  }
+
+  /* ---------- education ---------- */
+  .edu-list{ list-style:none; display:flex; flex-direction:column; gap:1.4rem; }
+  .edu-list li{ padding-bottom:1.4rem; border-bottom:1px solid var(--line); }
+  .edu-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .edu-list h3{ font-size:1.05rem; margin-bottom:0.2rem; }
+  .edu-list p{ color:var(--ink-soft); font-size:0.92rem; }
+
+  /* ---------- contact ---------- */
+  .contact-flag{
+    display:inline-flex; align-items:center; font-family:var(--font-mono); font-size:0.85rem;
+    background:var(--tag-bg); border:1px solid var(--line); border-radius:20px; padding:0.4rem 0.9rem 0.4rem 0.8rem; margin-bottom:1.25rem;
+  }
+  .contact-details{ display:flex; flex-direction:column; gap:0.5rem; margin:1.1rem 0 1.6rem; font-family:var(--font-mono); font-size:0.95rem; }
+  .contact-details a{ text-decoration:none; }
+  .contact-details a:hover{ text-decoration:underline; }
+  .contact-note{ color:var(--ink-soft); }
+
+  .footer{ padding:2.5rem 1.5rem; text-align:center; }
+  .footer p{ font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-soft); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:720px){
+    .statusbar-nav{ display:none; }
+    .statusbar-flag{ display:none; }
+    .nav-toggle{ display:flex; }
+    .mobile-nav.is-open{
+      display:flex; flex-direction:column; gap:0.2rem;
+      max-width:var(--content-width); margin:0 auto; padding:0 1.5rem 1rem;
+    }
+    .mobile-nav a{ padding:0.6rem 0; color:var(--ink); text-decoration:none; border-bottom:1px solid var(--line); font-size:0.95rem; }
+    .hero-inner{ flex-direction:column; gap:1.75rem; }
+    .hero-tag{ display:none; }
+    .skills-grid,.project-grid{ grid-template-columns:1fr; }
+  }
 </style>
 </head>
 <body>
-<header class="nav"><div class="container nav-inner">
-<div class="logo">Funke<span>.</span></div>
-<nav><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></nav>
-</div></header>
+
+<div class="statusbar">
+  <div class="statusbar-inner">
+    <a href="#top" class="statusbar-brand">OB</a>
+    <span class="statusbar-flag"><span class="dot dot-good dot-live" aria-hidden="true"></span>Available for remote roles</span>
+    <nav class="statusbar-nav" aria-label="Section navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="eyebrow">Data Analyst — SQL, Dashboards &amp; Operations</p>
+      <h1>Oluwafunke Bolarin</h1>
+      <p class="hero-lead">I turn messy stock records, sales exports, and databases into dashboards and decisions people can act on — six years doing it inside real FMCG supply chains in Lagos, sharpened by hands-on SQL training through ALX's Data Analytics Program.</p>
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">See the work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-tag" aria-hidden="true">
+      <div class="tag">
+        <span class="tag-mono">OB</span>
+        <span class="tag-caption">PROFILE</span>
+      </div>
+    </div>
+  </div>
+</header>
 
 <main>
-<section class="hero"><div class="container hero-grid">
-<div>
-<span class="badge">DATA ANALYST • INVENTORY • BUSINESS ANALYTICS</span>
-<h1>Turning data into <span class="gradient">better decisions.</span></h1>
-<p>I’m Funke Bolarin, a data and inventory professional who combines business operations experience with Excel, SQL, Power BI and data analytics to uncover insights and improve performance.</p>
-<div class="buttons"><a class="btn primary" href="#projects">View my work</a><a class="btn secondary" href="#contact">Let's connect</a></div>
-</div>
-<div class="profile-card"><div class="avatar">FB</div><h3>Funke Bolarin</h3><p>Data Analyst & Inventory Professional</p><div class="tags"><span class="tag">Power BI</span><span class="tag">SQL</span><span class="tag">Excel</span><span class="tag">Google Sheets</span></div></div>
-</div></section>
 
-<section id="about"><div class="container">
-<h2 class="section-title">About me</h2><p class="section-sub">Analytics grounded in real operational experience.</p>
-<div class="card"><p>I enjoy solving practical business problems with data—from identifying stock discrepancies and reducing stockouts to building dashboards that make performance easier to understand. My background in inventory coordination gives me a strong understanding of how data connects to day-to-day business decisions.</p></div>
-</div></section>
+  <section id="about" class="section reveal">
+    <div class="section-inner">
+      <p class="eyebrow">About</p>
+      <div class="prose">
+        <p>I'm an inventory control supervisor with six-plus years across inventory, logistics, and FMCG — most of it inside Nigeria's skincare and cosmetics retail space at Hush'D Makeover Limited. My work starts where the spreadsheet does: pulling stock and sales data out of ERP systems, cleaning it up, and building dashboards and reports that tell people what to reorder, what's sitting still, and where the numbers don't add up.</p>
+        <p>I've since added formal data analytics training to that experience, completing the ALX Data Analytics Program — SQL, database design, and reporting worked through a full case-study series, which you can see below. I also hold an HND in Microbiology from Auchi Polytechnic and a Coursera certification in Inventory Management Practices, and I'm currently working toward my CIPS qualification in procurement. Alongside my day job, I run Truecount Advisory, helping small businesses build inventory systems that actually make sense.</p>
+      </div>
+    </div>
+  </section>
 
-<section id="skills"><div class="container">
-<h2 class="section-title">What I do</h2><p class="section-sub">A practical analytics toolkit for business problems.</p>
-<div class="grid">
-<div class="card"><div class="icon">📊</div><h3>Dashboarding</h3><p>Build clear, decision-focused dashboards for KPIs, inventory, sales and operations.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Excel</span></div></div>
-<div class="card"><div class="icon">🧮</div><h3>Data Analysis</h3><p>Clean, transform and analyze data to identify trends, gaps, patterns and opportunities.</p><div class="tags"><span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">MySQL</span></div></div>
-<div class="card"><div class="icon">📦</div><h3>Inventory Analytics</h3><p>Analyze stock movement, accuracy, stockouts, aging, adjustments and operational performance.</p><div class="tags"><span class="tag">Inventory</span><span class="tag">Operations</span></div></div>
-</div></div></section>
+  <section id="skills" class="section section-alt reveal">
+    <div class="section-inner">
+      <p class="eyebrow">What I work with</p>
+      <div class="skills-grid">
+        <div class="skills-group">
+          <h3>Data &amp; reporting</h3>
+          <ul class="tag-list" role="list">
+            <li class="tag-chip">SQL / MySQL</li>
+            <li class="tag-chip">Power BI</li>
+            <li class="tag-chip">Advanced Excel</li>
+            <li class="tag-chip">Pivot tables</li>
+            <li class="tag-chip">VLOOKUP / XLOOKUP</li>
+            <li class="tag-chip">Dashboard design</li>
+            <li class="tag-chip">Data cleaning</li>
+            <li class="tag-chip">ABC classification</li>
+            <li class="tag-chip">Trend analysis</li>
+            <li class="tag-chip">KPI reporting</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Systems &amp; platforms</h3>
+          <ul class="tag-list" role="list">
+            <li class="tag-chip">SAGE</li>
+            <li class="tag-chip">Zoho Inventory</li>
+            <li class="tag-chip">QuickBooks</li>
+            <li class="tag-chip">Excel / Google Sheets</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Inventory &amp; supply chain</h3>
+          <ul class="tag-list" role="list">
+            <li class="tag-chip">Reorder point analysis</li>
+            <li class="tag-chip">Multi-location reconciliation</li>
+            <li class="tag-chip">Fast / slow-mover analysis</li>
+            <li class="tag-chip">Cycle counts &amp; audits</li>
+          </ul>
+        </div>
+        <div class="skills-group">
+          <h3>Certifications</h3>
+          <ul class="tag-list" role="list">
+            <li class="tag-chip">Coursera — Inventory Mgmt Practices</li>
+            <li class="tag-chip">CIPS (in progress)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section><div class="container"><div class="stats">
-<div class="stat"><strong>5+</strong><span>Years of professional experience</span></div>
-<div class="stat"><strong>83+</strong><span>Product types managed</span></div>
-<div class="stat"><strong>SQL</strong><span>Query & analysis</span></div>
-<div class="stat"><strong>Power BI</strong><span>Dashboard development</span></div>
-</div></div></section>
+  <section id="work" class="section reveal">
+    <div class="section-inner">
+      <p class="eyebrow">Selected work</p>
 
-<section id="projects"><div class="container">
-<h2 class="section-title">Featured projects</h2><p class="section-sub">Replace these sample cards with links to your real dashboards, GitHub projects or case studies.</p>
-<div class="projects">
-<article class="project"><div class="project-top">📦</div><div class="project-body"><h3>Inventory Performance Dashboard</h3><p>Dashboard concept tracking stock levels, stockouts, inventory accuracy, adjustments and product performance.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">Excel</span><span class="tag">Inventory</span></div><p><a href="#contact">Request case study →</a></p></div></article>
-<article class="project"><div class="project-top">📈</div><div class="project-body"><h3>Sales & Performance Analysis</h3><p>Business analysis using KPIs, trends and category-level breakdowns to support better commercial decisions.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">Data Analysis</span></div><p><a href="#contact">Request case study →</a></p></div></article>
-<article class="project"><div class="project-top">🔎</div><div class="project-body"><h3>SQL Business Insights</h3><p>Queries designed to answer practical business questions around customers, products, transactions and performance.</p><div class="tags"><span class="tag">MySQL</span><span class="tag">SQL</span></div><p><a href="#contact">View project →</a></p></div></article>
-<article class="project"><div class="project-top">📋</div><div class="project-body"><h3>Excel Operations Tracker</h3><p>Structured workbook for stock movement, physical counts, adjustments, valuation and operational monitoring.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Google Sheets</span></div><p><a href="#contact">View project →</a></p></div></article>
-</div></div></section>
+      <div class="project-group">
+        <p class="group-label">From the ALX Data Analytics Program</p>
+        <div class="project-grid">
+          <article class="project-card project-card-featured">
+            <h3>Maji Ndogo water-access analytics — a 4-part SQL series</h3>
+            <p class="project-tools">MySQL · SQL joins, CTEs &amp; views · ERD design · Data cleaning</p>
+            <p>A four-part case study analyzing a 60,000-record water-access database for the fictional Maji Ndogo region. Started with exploratory SQL and data cleaning, moved through clustering and queue-time analysis, audited data integrity against independent auditor reports, and finished with a full cross-table synthesis and improvement plan.</p>
+            <ul class="findings-list" role="list">
+              <li>Shared taps serve 43% of the population, with average queue times of 123 minutes</li>
+              <li>Only 28% of tested wells provide clean water, and 45% of in-home taps are non-functional</li>
+              <li>Cross-checked employee-recorded water quality scores against independent audits — found a 6% discrepancy rate and isolated four employees with unusually high error rates</li>
+            </ul>
+            <div class="series-links">
+              <a href="https://github.com/Funke-B/Analyzing-access-to-basic-water-services-" target="_blank" rel="noopener">Part 1 — Access &amp; quality ↗</a>
+              <a href="https://github.com/Funke-B/Clustering-data-to-unveil-Maji-Ndogo-s-water-crisis" target="_blank" rel="noopener">Part 2 — Clustering ↗</a>
+              <a href="https://github.com/Funke-B/Maji-Ndogo-Audit-Analysis" target="_blank" rel="noopener">Part 3 — Audit ↗</a>
+              <a href="https://github.com/Funke-B/Charting-the-course-for-Maji-Ndogo-s-water-future" target="_blank" rel="noopener">Part 4 — Synthesis ↗</a>
+            </div>
+          </article>
+        </div>
+      </div>
 
-<section id="contact"><div class="container"><div class="contact">
-<h2 class="section-title">Let’s work with data.</h2>
-<p>Available for Data Analyst, Business Analyst, Inventory Analyst and remote analytics opportunities.</p>
-<div class="buttons"><a class="btn primary" href="mailto:your.email@example.com">Email me</a><a class="btn secondary" href="https://www.linkedin.com/" target="_blank">LinkedIn</a></div>
-<p style="font-size:12px;margin-top:25px">Before publishing, replace the email and LinkedIn links with your real details.</p>
-</div></div></section>
+      <div class="project-group">
+        <p class="group-label">Applied at Hush'D Makeover</p>
+        <div class="project-grid">
+
+        <article class="project-card">
+          <h3>Multi-location inventory dashboard</h3>
+          <p class="project-tools">Excel · SAGE · Zoho Inventory</p>
+          <p>A live, multi-sheet dashboard that tracks stock movement across several warehouse locations. It separates real sales from internal transfers, flags SKUs that have dropped below their reorder point using combined stock across every location, and rolls up fast- and slow-moving items — so replenishment calls are based on the full picture, not one warehouse.</p>
+          <div class="mini-ledger" role="table" aria-label="Sample dashboard excerpt">
+            <div class="ml-row ml-head" role="row">
+              <span role="columnheader">SKU</span><span role="columnheader">WH-1</span><span role="columnheader">WH-2</span><span role="columnheader">Status</span>
+            </div>
+            <div class="ml-row" role="row"><span>FG-2201</span><span>142</span><span>88</span><span><span class="dot dot-good" aria-hidden="true"></span>OK</span></div>
+            <div class="ml-row" role="row"><span>FG-2214</span><span>12</span><span>4</span><span><span class="dot dot-warn" aria-hidden="true"></span>Reorder</span></div>
+            <div class="ml-row" role="row"><span>FG-2239</span><span>0</span><span>6</span><span><span class="dot dot-alert" aria-hidden="true"></span>Low</span></div>
+          </div>
+          <p class="caption">Sample excerpt — not real store data</p>
+        </article>
+
+        <article class="project-card">
+          <h3>Inventory health &amp; ABC report</h3>
+          <p class="project-tools">Excel · Data visualization</p>
+          <p>Turned a raw monthly inventory export into a report leadership could actually use: SKUs classified by value and movement, stock position across locations, and reorder-risk flags — backed by charts so the numbers are easy to act on, not just read.</p>
+          <div class="abc-bars" aria-label="Illustrative ABC value split">
+            <div class="abc-row"><span>Tier A</span><span class="abc-track"><span class="abc-fill" style="width:62%"></span></span><span class="abc-value">62%</span></div>
+            <div class="abc-row"><span>Tier B</span><span class="abc-track"><span class="abc-fill" style="width:27%"></span></span><span class="abc-value">27%</span></div>
+            <div class="abc-row"><span>Tier C</span><span class="abc-track"><span class="abc-fill" style="width:11%"></span></span><span class="abc-value">11%</span></div>
+          </div>
+          <p class="caption">Illustrative split by value — not real figures</p>
+        </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience" class="section section-alt reveal">
+    <div class="section-inner">
+      <p class="eyebrow">Experience</p>
+      <ol class="timeline">
+        <li>
+          <p class="timeline-date">20XX – Present</p>
+          <h3>Inventory Control Supervisor</h3>
+          <p class="timeline-org">Hush'D Makeover Limited</p>
+          <ul role="list">
+            <li>Build and maintain the multi-location inventory dashboard used for daily replenishment decisions</li>
+            <li>Reconcile stock data across SAGE and Zoho Inventory to keep records accurate</li>
+            <li>Produce monthly inventory analysis — ABC classification, reorder risk, multi-location position — for management</li>
+            <li>Support procurement and replenishment planning with data-backed recommendations</li>
+          </ul>
+        </li>
+        <li>
+          <p class="timeline-date">20XX – Present</p>
+          <h3>Founder</h3>
+          <p class="timeline-org">Truecount Advisory</p>
+          <ul role="list">
+            <li>Independent inventory consulting for small businesses — building stock systems and reporting tools that fit how they actually work</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="education" class="section reveal">
+    <div class="section-inner">
+      <p class="eyebrow">Education &amp; certifications</p>
+      <ul class="edu-list" role="list">
+        <li><h3>Data Analytics Program</h3><p>ALX — Certificate</p></li>
+        <li><h3>HND, Microbiology</h3><p>Auchi Polytechnic</p></li>
+        <li><h3>Inventory Management Practices</h3><p>Coursera — Certificate</p></li>
+        <li><h3>CIPS</h3><p>Chartered Institute of Procurement &amp; Supply — In progress</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact" class="section section-alt reveal">
+    <div class="section-inner">
+      <p class="eyebrow">Get in touch</p>
+      <span class="contact-flag"><span class="dot dot-good dot-live" aria-hidden="true"></span>Available for remote roles</span>
+      <p class="contact-note">Based in Lagos, Nigeria — happy to work across time zones.</p>
+      <div class="contact-details">
+        <a href="mailto:bolarinoluwafunke1@gmail.com">bolarinoluwafunke1@gmail.com</a>
+        <a href="https://www.linkedin.com/in/funkebolarinval/" target="_blank" rel="noopener">linkedin.com/in/funkebolarinval</a>
+        <a href="https://github.com/Funke-B" target="_blank" rel="noopener">github.com/Funke-B</a>
+      </div>
+      <a href="mailto:bolarinoluwafunke1@gmail.com" class="btn btn-primary">Email me</a>
+    </div>
+  </section>
+
 </main>
-<footer class="footer">© 2026 Funke Bolarin • Data Analyst Portfolio</footer>
+
+<footer class="footer">
+  <p>Oluwafunke Bolarin — Lagos, Nigeria</p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var mobileNav = document.querySelector('.mobile-nav');
+  if (toggle && mobileNav) {
+    toggle.addEventListener('click', function () {
+      var open = mobileNav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileNav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  var navLinks = document.querySelectorAll('.statusbar-nav a, .mobile-nav a');
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
+  if ('IntersectionObserver' in window && sections.length) {
+    var navObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var id = entry.target.getAttribute('id');
+          navLinks.forEach(function (link) {
+            link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    sections.forEach(function (s) { navObserver.observe(s); });
+  }
+});
+</script>
+
 </body>
 </html>
